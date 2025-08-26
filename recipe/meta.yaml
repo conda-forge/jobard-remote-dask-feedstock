@@ -11,20 +11,20 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - jobard-remote-dask = jobard_remote_dask.cli.app:jobard_remote_dask
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - poetry-core
     - poetry-dynamic-versioning
 
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - dask >=2021.10.0,<2021.11.0
     - distributed >=2021.10.0,<2021.11.0
     - dask-jobqueue >=0.7.3,<0.8
@@ -43,7 +43,7 @@ test:
   source_files:
     - jobard_remote_dask/tests/test_local.py
   requires:
-    - python 3.9
+    - python {{ python_min }}
   commands:
     - python jobard_remote_dask/tests/test_local.py
 
