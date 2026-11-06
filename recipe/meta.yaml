@@ -37,7 +37,7 @@ requirements:
     - pandas >=1.4.1,<1.5
     - filelock >=3.6.0,<3.7
     - click >=8.0.2
-    - kr8s >=0.8.15
+    - kr8s >=0.20.9,<0.21.0
 
 test:
   imports:
