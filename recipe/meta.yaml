@@ -1,5 +1,5 @@
 {% set name = "jobard-remote-dask" %}
-{% set version = "1.7.0" %}
+{% set version = "1.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://gitlab.ifremer.fr/jobard/jobard_remote_dask/-/archive/{{ version }}/jobard_remote_dask-{{ version }}.tar.gz
-  sha256: f465fe41ed207c2104ee2fa1b2eb4c15bf6cb988addeb189e2b773eda9112752
+  sha256: 28278ae7c46d21596463d3703d7aa4406a910956bb0f2e7f5c39c7c74ece759e
 
 build:
   script_env:
     - POETRY_DYNAMIC_VERSIONING_BYPASS={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - jobard-remote-dask = jobard_remote_dask.cli.app:jobard_remote_dask
